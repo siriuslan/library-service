@@ -27,3 +27,9 @@ def ask_question(question: Question):
     assist=Assist()
     response=assist.ask(question.question)
     return {"response": response}
+
+@app.post("/chat/")
+def chat(question: Question):
+    assist=Assist()
+    response=assist.chat(question.question)
+    return {"response": response}

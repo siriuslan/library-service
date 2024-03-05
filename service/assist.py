@@ -32,3 +32,12 @@ class Assist:
         response = messages.data[0].content[0].text.value
 
         return response
+    
+    def chat(self, question: str) -> str:
+        completion = self.client.chat.completions.create(
+            model="gpt-4-0125-preview",
+            messages=[
+                { "role": "user", "content": question },
+            ]
+        )
+        return completion.choices[0].message.content
